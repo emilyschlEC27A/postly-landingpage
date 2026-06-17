@@ -12,26 +12,79 @@
 
 body{
     font-family:Inter,sans-serif;
-    background:linear-gradient(180deg,#f6f7fb,#eef2ff);
+    background:#f6f7fb;
     color:#0f172a;
     overflow-x:hidden;
 }
 
-section{padding:140px 10%}
+/* ================= NAV ================= */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 10%;
+    background:rgba(255,255,255,0.7);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid #e5e7eb;
+    z-index:1000;
+}
 
-/* HERO */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:18px;
+}
+
+.logo-box{
+    width:14px;
+    height:14px;
+    border-radius:4px;
+    background:linear-gradient(135deg,#6366f1,#60a5fa,#34d399);
+}
+
+nav a{
+    margin-left:18px;
+    text-decoration:none;
+    color:#475569;
+    font-size:14px;
+    font-weight:500;
+}
+
+nav a:hover{color:#6366f1}
+
+/* ================= SECTIONS ================= */
+section{
+    padding:120px 10%;
+}
+
+/* alternating backgrounds */
+.alt1{background:#ffffff}
+.alt2{background:linear-gradient(180deg,#eef2ff,#f8fafc)}
+.alt3{background:#f1f5f9}
+
+/* ================= HERO ================= */
 .hero{
-    padding:180px 10% 120px;
     display:grid;
     grid-template-columns:1.2fr 1fr;
     gap:60px;
-    align-items:center;
+    padding-top:160px;
 }
 
 .hero h1{
     font-size:4rem;
     line-height:1.05;
     letter-spacing:-2px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    color:#64748b;
+    margin-top:15px;
 }
 
 .gradient{
@@ -45,224 +98,241 @@ section{padding:140px 10%}
     display:inline-block;
     padding:12px 18px;
     border-radius:12px;
+    margin-right:10px;
     font-weight:600;
     text-decoration:none;
-    margin-right:10px;
 }
 
 .primary{background:#6366f1;color:white}
 .secondary{border:1px solid #e5e7eb;background:white}
 
-/* CARDS */
+/* ================= MOCKUP ================= */
+.mockup{
+    background:white;
+    border-radius:20px;
+    height:420px;
+    box-shadow:0 40px 120px rgba(0,0,0,0.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+    color:#64748b;
+}
+
+/* ================= SPLIT ================= */
+.split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+h2{
+    font-size:2.6rem;
+    margin-bottom:20px;
+}
+
+p{
+    color:#64748b;
+    line-height:1.6;
+}
+
+/* ================= FEATURES ================= */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:20px;
 }
 
 .card{
     background:white;
-    border-radius:18px;
-    padding:26px;
+    border-radius:16px;
+    padding:22px;
     border:1px solid #e5e7eb;
+    transition:0.3s;
 }
 
-/* CTA */
+.card:hover{
+    transform:translateY(-8px);
+}
+
+/* ================= VIDEO ================= */
+.video{
+    width:100%;
+    height:420px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#dbeafe,#e0e7ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:600;
+    color:#64748b;
+}
+
+/* ================= TESTIMONIALS ================= */
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.quote{
+    background:white;
+    padding:22px;
+    border-radius:16px;
+    border-left:5px solid #6366f1;
+}
+
+/* ================= PRICING ================= */
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.price{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+    text-align:center;
+    transition:0.3s;
+}
+
+.price:hover{
+    transform:scale(1.05);
+    border-color:#6366f1;
+}
+
+/* ================= CTA ================= */
 .cta{
+    text-align:center;
+    padding:100px;
     background:linear-gradient(135deg,#6366f1,#60a5fa,#34d399);
     color:white;
     border-radius:24px;
+}
+
+/* ================= FOOTER ================= */
+footer{
     text-align:center;
-    padding:100px;
+    padding:60px;
+    color:#94a3b8;
 }
 
-/* TABLE */
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    border-radius:16px;
-    overflow:hidden;
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+    .hero{grid-template-columns:1fr}
+    .split{grid-template-columns:1fr}
+    .hero h1{font-size:3rem}
 }
-
-td,th{
-    padding:16px;
-    border-bottom:1px solid #e5e7eb;
-    text-align:left;
-}
-
-/* FADE */
-.fade{
-    opacity:0;
-    transform:translateY(40px);
-    transition:0.8s;
-}
-.fade.show{opacity:1;transform:translateY(0)}
-
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
+<nav>
+    <div class="logo">
+        <div class="logo-box"></div>
+        Postly
+    </div>
+
+    <div>
+        <a href="#features">Features</a>
+        <a href="#about">Über uns</a>
+        <a href="#pricing">Preise</a>
+        <a href="#contact">Kontakt</a>
+    </div>
+</nav>
+
 <!-- HERO -->
-<section class="hero fade">
+<section class="hero alt2">
 <div>
-    <h1>Erstelle Content, der <span class="gradient">wirklich wächst</span></h1>
-    <p>Eine KI Plattform für Social Media, Strategie, Planung und automatisierte Inhalte.</p>
-    <a class="btn primary">Kostenlos starten</a>
-    <a class="btn secondary">Demo ansehen</a>
+    <h1>Content, der <span class="gradient">wirklich wächst</span></h1>
+    <p>Eine Plattform für KI-gestützte Social Media Inhalte, Strategie und Automatisierung.</p>
+    <br>
+    <a class="btn primary">Starten</a>
+    <a class="btn secondary">Demo</a>
 </div>
-<div class="card">Dashboard Preview</div>
-</section>
 
-<!-- PROBLEM -->
-<section class="fade">
-<h2>Das Problem</h2>
-<div class="grid">
-<div class="card">Zu viel Zeit für Content Planung</div>
-<div class="card">Keine Ideen für Posts</div>
-<div class="card">Unklare Strategie</div>
-<div class="card">Zu wenig Reichweite</div>
+<div class="mockup">
+Dashboard / App Preview
 </div>
 </section>
 
-<!-- LÖSUNG -->
-<section class="fade">
-<h2>Die Lösung</h2>
-<div class="grid">
-<div class="card">KI erstellt Posts in Sekunden</div>
-<div class="card">Automatische Content Ideen</div>
-<div class="card">Hashtag Optimierung</div>
-<div class="card">Planbare Content Strategie</div>
-</div>
-</section>
+<!-- FEATURES -->
+<section id="features" class="alt1">
+<h2>Features</h2>
 
-<!-- FEATURES DEEP DIVE -->
-<section class="fade">
-<h2>Features im Detail</h2>
 <div class="grid">
-<div class="card">Content Generator</div>
-<div class="card">Caption Writer</div>
-<div class="card">Trend Analyse</div>
-<div class="card">Posting Kalender</div>
+<div class="card">KI Content Generator</div>
+<div class="card">Hashtag Analyse</div>
+<div class="card">Content Planung</div>
 <div class="card">Brand Voice KI</div>
-<div class="card">Performance Insights</div>
 </div>
 </section>
 
-<!-- WORKFLOW -->
-<section class="fade">
+<!-- SPLIT SECTION -->
+<section class="alt3 split" id="about">
+<div>
+<h2>Warum Postly?</h2>
+<p>
+Wir kombinieren KI, Datenanalyse und moderne Workflows, um Social Media einfacher, schneller und effektiver zu machen.
+</p>
+</div>
+
+<div class="mockup">Produkt Screenshot / Grafik</div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="alt2">
 <h2>So funktioniert es</h2>
-<div class="grid">
-<div class="card">1. Thema eingeben</div>
-<div class="card">2. KI generiert Content</div>
-<div class="card">3. Bearbeiten oder übernehmen</div>
-<div class="card">4. Planen</div>
-<div class="card">5. Posten & wachsen</div>
+<div class="video">
+▶ Demo Video Placeholder
 </div>
-</section>
-
-<!-- USE CASES -->
-<section class="fade">
-<h2>Für wen ist es?</h2>
-<div class="grid">
-<div class="card">Content Creator</div>
-<div class="card">Startups</div>
-<div class="card">Agenturen</div>
-<div class="card">E-Commerce Brands</div>
-<div class="card">Freelancer</div>
-</div>
-</section>
-
-<!-- STATISTICS -->
-<section class="fade">
-<h2>Ergebnisse</h2>
-<div class="grid">
-<div class="card"><b>+320%</b><br>mehr Reichweite</div>
-<div class="card"><b>10.000+</b><br>User</div>
-<div class="card"><b>8M+</b><br>generierte Ideen</div>
-</div>
-</section>
-
-<!-- COMPARISON -->
-<section class="fade">
-<h2>Vergleich</h2>
-<table>
-<tr>
-<th>Feature</th>
-<th>Manuell</th>
-<th>Postly</th>
-</tr>
-<tr>
-<td>Content Ideen</td>
-<td>Langsam</td>
-<td>Sofort</td>
-</tr>
-<tr>
-<td>Planung</td>
-<td>Kompliziert</td>
-<td>Automatisch</td>
-</tr>
-<tr>
-<td>Analyse</td>
-<td>Manuell</td>
-<td>KI-basiert</td>
-</tr>
-</table>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="fade">
+<section class="alt1">
 <h2>Was Nutzer sagen</h2>
-<div class="grid">
-<div class="card">„Hat meine Arbeit halbiert.“</div>
-<div class="card">„Beste Content Tool überhaupt.“</div>
-<div class="card">„Extrem einfach zu nutzen.“</div>
+
+<div class="testimonials">
+<div class="quote">„Hat unsere Content Produktion 10x schneller gemacht.“</div>
+<div class="quote">„Extrem intuitive Oberfläche.“</div>
+<div class="quote">„Perfekt für Agenturen.“</div>
 </div>
 </section>
 
 <!-- PRICING -->
-<section class="fade">
+<section id="pricing" class="alt2">
 <h2>Preise</h2>
-<div class="grid">
-<div class="card">Starter – 0€</div>
-<div class="card">Pro – 19€</div>
-<div class="card">Business – 49€</div>
-</div>
-</section>
 
-<!-- FAQ -->
-<section class="fade">
-<h2>FAQ</h2>
-<div class="grid">
-<div class="card">Kann ich kündigen?</div>
-<div class="card">Wie funktioniert die KI?</div>
-<div class="card">Für wen geeignet?</div>
-<div class="card">Gibt es Support?</div>
+<div class="pricing">
+<div class="price">Starter<br>0€</div>
+<div class="price">Pro<br>19€</div>
+<div class="price">Business<br>49€</div>
 </div>
 </section>
 
 <!-- CTA -->
-<section class="cta fade">
+<section class="cta">
 <h2>Starte jetzt</h2>
-<p>Kein Risiko – jederzeit kündbar</p>
+<p>Keine Kreditkarte nötig</p>
 <br>
-<a class="btn secondary">Jetzt starten</a>
+<a class="btn secondary">Loslegen</a>
 </section>
 
-<footer style="text-align:center;padding:60px;color:#94a3b8">
+<!-- CONTACT -->
+<section id="contact" class="alt1">
+<h2>Kontakt</h2>
+<p>E-Mail: hello@postly.ai</p>
+</section>
+
+<footer>
 © 2026 Postly
 </footer>
-
-<script>
-const f=document.querySelectorAll('.fade');
-const obs=new IntersectionObserver(e=>{
-e.forEach(x=>{
-if(x.isIntersecting)x.target.classList.add('show');
-});
-},{threshold:0.15});
-f.forEach(e=>obs.observe(e));
-</script>
 
 </body>
 </html>
