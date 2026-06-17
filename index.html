@@ -48,32 +48,44 @@
     .feature-stagger:nth-child(2) { animation-delay: 0.1s; }
     .feature-stagger:nth-child(3) { animation-delay: 0.2s; }
     .feature-stagger:nth-child(4) { animation-delay: 0.3s; }
+    /* Gradient corner accents */
+    .gradient-accent-tl { position: relative; }
+    .gradient-accent-tl::before { content: ''; position: absolute; top: 0; left: 0; width: 200px; height: 200px; background: radial-gradient(circle at top left, rgba(99,102,241,0.1), transparent 70%); pointer-events: none; }
+    .gradient-accent-tr { position: relative; }
+    .gradient-accent-tr::before { content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle at top right, rgba(217,70,239,0.1), transparent 70%); pointer-events: none; }
+    .gradient-accent-bl { position: relative; }
+    .gradient-accent-bl::before { content: ''; position: absolute; bottom: 0; left: 0; width: 200px; height: 200px; background: radial-gradient(circle at bottom left, rgba(59,130,246,0.1), transparent 70%); pointer-events: none; }
+    .gradient-accent-br { position: relative; }
+    .gradient-accent-br::before { content: ''; position: absolute; bottom: 0; right: 0; width: 200px; height: 200px; background: radial-gradient(circle at bottom right, rgba(168,85,247,0.1), transparent 70%); pointer-events: none; }
   </style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="/_sdk/resizing_sdk.js" type="text/javascript"></script>
  </head>
- <body data-template-id="__page-root" class="w-full min-h-screen" style="background: rgb(255, 255, 255);"><!-- Nav -->
+ <body data-template-id="__page-root" class="w-full min-h-screen" style="background: rgb(255, 255, 255);">
+  <!-- Nav -->
   <nav class="w-full border-b border-gray-100 bg-white/80 backdrop-blur sticky top-0 z-50">
    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-     <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-300 to-purple-300 flex items-center justify-center">
-      <svg viewBox="0 0 24 24" fill="none" class="w-5 h-5">
-       <path d="M3 12L21 3L12 21L10 14L3 12Z" fill="url(#logoGradient)" stroke="white" stroke-width="0.5"></path> <defs>
+    <div class="flex items-center gap-1">
+     <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-300 to-purple-300 flex items-center justify-center">
+      <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6"><path d="M3 12L21 3L12 21L10 14L3 12Z" fill="url(#logoGradient)" stroke="white" stroke-width="0.5"></path> <defs>
         <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
          <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1"></stop>
          <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1"></stop>
         </linearGradient>
        </defs>
       </svg>
-     </div><span data-template-id="nav-logo" class="canva-text font-bold text-lg" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">Postly</span>
+     </div><span data-template-id="nav-logo" class="canva-text font-bold text-2xl" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">Postly</span>
     </div>
-    <div class="hidden md:flex items-center gap-8 text-sm text-gray-600"><a href="#about" data-template-id="nav-link-about" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Über uns</a> <a href="#features" data-template-id="nav-link-1" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Features</a> <a href="#pricing" data-template-id="nav-link-2" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Preise</a> <a href="#contact" data-template-id="nav-link-3" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Kontakt</a>
+    <div class="hidden md:flex items-center gap-8 text-sm text-gray-600">
+     <a href="#about" data-template-id="nav-link-about" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Über uns</a> <a href="#features" data-template-id="nav-link-1" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Features</a> <a href="#pricing" data-template-id="nav-link-2" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Preise</a> <a href="#contact" data-template-id="nav-link-3" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Kontakt</a>
     </div>
-    <div class="hidden md:flex items-center gap-3"><button type="button" class="w-9 h-9 rounded-lg hover:bg-gray-100 flex items-center justify-center transition text-gray-600 hover:text-gray-900"> <i data-lucide="user-circle" style="width: 20px; height: 20px;"></i> </button> <button data-template-id="nav-cta" class="canva-button px-4 py-2 rounded-lg text-sm font-medium" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Kostenlos starten</button>
+    <div class="hidden md:flex items-center gap-3">
+     <button type="button" class="w-9 h-9 rounded-lg hover:bg-gray-100 flex items-center justify-center transition text-gray-600 hover:text-gray-900"> <i data-lucide="user-circle" style="width: 20px; height: 20px;"></i> </button> <button data-template-id="nav-cta" class="canva-button px-4 py-2 rounded-lg text-sm font-medium" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Kostenlos starten</button>
     </div>
    </div>
   </nav>
-  <main class="w-full"><!-- Hero -->
+  <main class="w-full">
+   <!-- Hero -->
    <section class="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
     <p data-template-id="hero-tagline" class="canva-text text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8 animate-fade-up font-medium" style="color: rgb(75, 85, 99); font-weight: 500; font-style: normal; font-size: 16px; line-height: 1.6;">Die All-in-One Social Media Management Plattform für Content Creator und Marketing Teams. Plane, erstelle und veröffentliche Inhalte mit kraftvollen Tools und KI-Unterstützung.</p>
     <h1 data-template-id="hero-title" class="canva-text text-4xl md:text-5xl font-bold leading-tight max-w-2xl mx-auto animate-fade-up delay-1" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 32px;">Erstelle Content, der wirklich wirkt. ✨</h1>
@@ -91,7 +103,8 @@
        </div>
       </div>
      </div>
-     <div class="grid grid-cols-5 gap-0 divide-x divide-gray-100"><!-- Profile Sidebar -->
+     <div class="grid grid-cols-5 gap-0 divide-x divide-gray-100">
+      <!-- Profile Sidebar -->
       <div class="col-span-1 bg-gray-50 p-4 space-y-4">
        <div class="flex flex-col items-center text-center">
         <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-300 to-purple-300 flex items-center justify-center text-white font-bold text-lg mb-2">
@@ -148,7 +161,8 @@
         </div>
        </div>
       </div><!-- Main Content -->
-      <div class="col-span-4 p-5 space-y-4"><!-- Greeting -->
+      <div class="col-span-4 p-5 space-y-4">
+       <!-- Greeting -->
        <div class="flex items-center justify-between">
         <div>
          <div class="text-sm font-semibold text-gray-800">
@@ -328,8 +342,7 @@
           <div class="flex-1 bg-blue-400 rounded-t" style="height:70%"></div>
           <div class="flex-1 bg-purple-400 rounded-t" style="height:100%"></div>
          </div>
-         <div class="flex justify-between mt-1 text-[8px] text-gray-400">
-          <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
+         <div class="flex justify-between mt-1 text-[8px] text-gray-400"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
          </div>
         </div>
        </div><!-- Recent Activity -->
@@ -337,17 +350,20 @@
         <div class="text-[10px] font-semibold text-gray-600 mb-1">
          🕐 Letzte Aktivitäten
         </div>
-        <div class="flex items-center gap-2 bg-green-50 border border-green-100 rounded-lg p-2"><span class="text-xs">✅</span>
+        <div class="flex items-center gap-2 bg-green-50 border border-green-100 rounded-lg p-2">
+         <span class="text-xs">✅</span>
          <div class="text-[10px] text-green-700">
           Instagram Post veröffentlicht · vor 5 Min.
          </div>
         </div>
-        <div class="flex items-center gap-2 bg-blue-50 border border-blue-100 rounded-lg p-2"><span class="text-xs">⏰</span>
+        <div class="flex items-center gap-2 bg-blue-50 border border-blue-100 rounded-lg p-2">
+         <span class="text-xs">⏰</span>
          <div class="text-[10px] text-blue-700">
           LinkedIn wird in 2h veröffentlicht
          </div>
         </div>
-        <div class="flex items-center gap-2 bg-purple-50 border border-purple-100 rounded-lg p-2"><span class="text-xs">✍️</span>
+        <div class="flex items-center gap-2 bg-purple-50 border border-purple-100 rounded-lg p-2">
+         <span class="text-xs">✍️</span>
          <div class="text-[10px] text-purple-700">
           Neuer Entwurf gespeichert: "Sommer-Kampagne"
          </div>
@@ -358,166 +374,183 @@
     </div>
     <p data-template-id="dashboard-caption" class="canva-text text-xs mt-4 animate-fade-in delay-5" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">✨ Dein persönliches Dashboard — immer alles im Blick</p>
    </section><!-- Features -->
-   <section id="features" class="max-w-6xl mx-auto px-6 py-20">
-    <h2 data-template-id="features-title" class="canva-text text-3xl font-bold text-center reveal" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Alles, was du für erfolgreichen Content brauchst. 🎯</h2>
-    <div class="grid md:grid-cols-2 gap-6 mt-12">
-     <div data-template-id="feature-card-1" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover feature-stagger reveal" style="background: rgb(255, 255, 255);">
-      <div class="flex items-center gap-3 mb-3">
-       <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-xl">
-        ✏️
+   <section id="features" class="w-full bg-gradient-to-b from-blue-50 via-white to-purple-50 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+     <h2 data-template-id="features-title" class="canva-text text-3xl font-bold text-center reveal" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Alles, was du für erfolgreichen Content brauchst. 🎯</h2>
+     <div class="grid md:grid-cols-2 gap-6 mt-12">
+      <div data-template-id="feature-card-1" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover feature-stagger reveal" style="background: rgb(255, 255, 255);">
+       <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-xl">
+         ✏️
+        </div>
        </div>
+       <h3 data-template-id="feature-1-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Content Erstellung ✏️</h3>
+       <p data-template-id="feature-1-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Erstelle Texte, Grafiken und Videos mit KI-Unterstützung in Minuten.</p>
       </div>
-      <h3 data-template-id="feature-1-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Content Erstellung ✏️</h3>
-      <p data-template-id="feature-1-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Erstelle Texte, Grafiken und Videos mit KI-Unterstützung in Minuten.</p>
-     </div>
-     <div data-template-id="feature-card-2" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover feature-stagger reveal" style="background: rgb(255, 255, 255);">
-      <div class="flex items-center gap-3 mb-3">
-       <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-xl">
-        📅
+      <div data-template-id="feature-card-2" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover feature-stagger reveal" style="background: rgb(255, 255, 255);">
+       <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-xl">
+         📅
+        </div>
        </div>
+       <h3 data-template-id="feature-2-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Planung &amp; Scheduling 📅</h3>
+       <p data-template-id="feature-2-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Plane deinen Content-Kalender und veröffentliche automatisch.</p>
       </div>
-      <h3 data-template-id="feature-2-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Planung &amp; Scheduling 📅</h3>
-      <p data-template-id="feature-2-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Plane deinen Content-Kalender und veröffentliche automatisch.</p>
-     </div>
-     <div data-template-id="feature-card-3" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover feature-stagger reveal" style="background: rgb(255, 255, 255);">
-      <div class="flex items-center gap-3 mb-3">
-       <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-xl">
-        📈
+      <div data-template-id="feature-card-3" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover feature-stagger reveal" style="background: rgb(255, 255, 255);">
+       <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-xl">
+         📈
+        </div>
        </div>
+       <h3 data-template-id="feature-3-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Analytics &amp; Insights 📈</h3>
+       <p data-template-id="feature-3-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Verstehe was funktioniert mit detaillierten Performance-Daten.</p>
       </div>
-      <h3 data-template-id="feature-3-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Analytics &amp; Insights 📈</h3>
-      <p data-template-id="feature-3-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Verstehe was funktioniert mit detaillierten Performance-Daten.</p>
-     </div>
-     <div data-template-id="feature-card-4" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover feature-stagger reveal" style="background: rgb(255, 255, 255);">
-      <div class="flex items-center gap-3 mb-3">
-       <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-xl">
-        👥
+      <div data-template-id="feature-card-4" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover feature-stagger reveal" style="background: rgb(255, 255, 255);">
+       <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-xl">
+         👥
+        </div>
        </div>
+       <h3 data-template-id="feature-4-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Team-Zusammenarbeit 👥</h3>
+       <p data-template-id="feature-4-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Arbeite nahtlos mit deinem Team an Inhalten zusammen.</p>
       </div>
-      <h3 data-template-id="feature-4-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Team-Zusammenarbeit 👥</h3>
-      <p data-template-id="feature-4-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Arbeite nahtlos mit deinem Team an Inhalten zusammen.</p>
      </div>
     </div>
    </section><!-- Video Section -->
-   <section class="max-w-6xl mx-auto px-6 py-16 reveal">
-    <div class="text-center mb-10">
-     <h2 data-template-id="video-title" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Sieh dir an, wie Postly in 60 Sekunden funktioniert. 🎬</h2>
-    </div>
-    <div class="max-w-2xl mx-auto">
-     <div class="relative w-full" style="aspect-ratio: 16/10;">
-      <!-- Laptop mockup -->
-      <div class="absolute inset-0 flex flex-col">
-       <!-- Screen -->
-       <div class="flex-1 bg-gradient-to-br from-gray-900 to-gray-800 rounded-t-3xl flex items-center justify-center relative shadow-lg border-8 border-gray-950">
-        <!-- Video preview content -->
-        <div class="w-full h-full rounded-t-2xl bg-gradient-to-br from-blue-400 to-purple-300 flex items-center justify-center overflow-hidden relative">
-         <img data-template-id="video-thumbnail" class="canva-image absolute inset-0 w-full h-full object-cover opacity-30" loading="lazy" src="canva://MAHM0PfzF3c/1" alt="Postly Dashboard Demo Video Vorschau"> <!-- Play button --> <button type="button" class="relative z-10 w-16 h-16 rounded-full bg-white shadow-lg hover:scale-110 transition transform flex items-center justify-center group float-animate">
-          <svg class="w-6 h-6 text-blue-400 ml-1 group-hover:scale-110 transition" fill="currentColor" viewBox="0 0 20 20">
-           <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
-          </svg></button>
+   <section class="w-full bg-gradient-to-b from-purple-50 via-white to-indigo-50 py-16">
+    <div class="max-w-6xl mx-auto px-6 reveal">
+     <div class="text-center mb-10">
+      <h2 data-template-id="video-title" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Sieh dir an, wie Postly in 60 Sekunden funktioniert. 🎬</h2>
+     </div>
+     <div class="max-w-2xl mx-auto">
+      <div class="relative w-full" style="aspect-ratio: 16/10;"><!-- Laptop mockup -->
+       <div class="absolute inset-0 flex flex-col"><!-- Screen -->
+        <div class="flex-1 bg-gradient-to-br from-gray-900 to-gray-800 rounded-t-3xl flex items-center justify-center relative shadow-lg border-8 border-gray-950"><!-- Video preview content -->
+         <div class="w-full h-full rounded-t-2xl bg-gradient-to-br from-blue-400 to-purple-300 flex items-center justify-center overflow-hidden relative"><!-- Play button --> <button type="button" class="relative z-10 w-16 h-16 rounded-full bg-white shadow-lg hover:scale-110 transition transform flex items-center justify-center group float-animate">
+           <svg class="w-6 h-6 text-blue-400 ml-1 group-hover:scale-110 transition" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
+           </svg></button>
+         </div>
+        </div><!-- Laptop base -->
+        <div class="h-6 bg-gray-950 rounded-b-lg flex items-center justify-center relative">
+         <div class="w-32 h-1 bg-gray-800 rounded-full"></div>
         </div>
-       </div><!-- Laptop base -->
-       <div class="h-6 bg-gray-950 rounded-b-lg flex items-center justify-center relative">
-        <div class="w-32 h-1 bg-gray-800 rounded-full"></div>
        </div>
       </div>
      </div>
     </div>
    </section><!-- Content Hub -->
-   <section class="max-w-6xl mx-auto px-6 py-16 reveal">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-     <div>
-      <h2 data-template-id="hub-title" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Dein gesamter Content an einem Ort. 🗂️</h2>
-      <p data-template-id="hub-desc" class="canva-text mt-4 text-base" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Organisiere alle Inhalte, Entwürfe und Veröffentlichungen in einem übersichtlichen Dashboard.</p>
-      <div class="mt-6 space-y-3">
-       <div class="flex items-center gap-3"><span class="text-lg">🗂️</span> <span data-template-id="hub-feature-1" class="canva-text text-sm" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Alle Entwürfe &amp; Medien zentral verwalten</span>
-       </div>
-       <div class="flex items-center gap-3"><span class="text-lg">🔄</span> <span data-template-id="hub-feature-2" class="canva-text text-sm" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Automatische Cross-Platform-Veröffentlichung</span>
-       </div>
-       <div class="flex items-center gap-3"><span class="text-lg">🚀</span> <span data-template-id="hub-feature-3" class="canva-text text-sm" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">One-Click Publishing auf allen Kanälen</span>
+   <section class="w-full bg-gradient-to-b from-indigo-50 via-white to-pink-50 py-16">
+    <div class="max-w-6xl mx-auto px-6 reveal">
+     <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+       <h2 data-template-id="hub-title" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Dein gesamter Content an einem Ort. 🗂️</h2>
+       <p data-template-id="hub-desc" class="canva-text mt-4 text-base" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Organisiere alle Inhalte, Entwürfe und Veröffentlichungen in einem übersichtlichen Dashboard.</p>
+       <div class="mt-6 space-y-3">
+        <div class="flex items-center gap-3">
+         <span class="text-lg">🗂️</span> <span data-template-id="hub-feature-1" class="canva-text text-sm" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Alle Entwürfe &amp; Medien zentral verwalten</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <span class="text-lg">🔄</span> <span data-template-id="hub-feature-2" class="canva-text text-sm" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Automatische Cross-Platform-Veröffentlichung</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <span class="text-lg">🚀</span> <span data-template-id="hub-feature-3" class="canva-text text-sm" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">One-Click Publishing auf allen Kanälen</span>
+        </div>
        </div>
       </div>
-     </div>
-     <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100"><img data-template-id="hub-image" class="canva-image w-full h-64 object-cover" loading="lazy" src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Team working together on content creation at a modern desk">
+      <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+       <img data-template-id="hub-image" class="canva-image w-full h-64 object-cover" loading="lazy" src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Team working together on content creation at a modern desk">
+      </div>
      </div>
     </div>
    </section><!-- Stats -->
-   <section class="max-w-5xl mx-auto px-6 py-16 reveal">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-     <div class="stat-card">
-      <p data-template-id="stat-1-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">10.000+</p>
-      <p data-template-id="stat-1-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Aktive Nutzer 🙌</p>
-     </div>
-     <div class="stat-card">
-      <p data-template-id="stat-2-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">250.000+</p>
-      <p data-template-id="stat-2-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Erstellte Inhalte 📝</p>
-     </div>
-     <div class="stat-card">
-      <p data-template-id="stat-3-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">5 Min.</p>
-      <p data-template-id="stat-3-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Ø Erstellzeit ⚡</p>
-     </div>
-     <div class="stat-card">
-      <p data-template-id="stat-4-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">98%</p>
-      <p data-template-id="stat-4-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Zufriedenheit 💜</p>
+   <section class="w-full bg-gradient-to-b from-pink-50 via-white to-orange-50 py-16">
+    <div class="max-w-5xl mx-auto px-6 reveal">
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="stat-card">
+       <p data-template-id="stat-1-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">10.000+</p>
+       <p data-template-id="stat-1-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Aktive Nutzer 🙌</p>
+      </div>
+      <div class="stat-card">
+       <p data-template-id="stat-2-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">250.000+</p>
+       <p data-template-id="stat-2-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Erstellte Inhalte 📝</p>
+      </div>
+      <div class="stat-card">
+       <p data-template-id="stat-3-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">5 Min.</p>
+       <p data-template-id="stat-3-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Ø Erstellzeit ⚡</p>
+      </div>
+      <div class="stat-card">
+       <p data-template-id="stat-4-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">98%</p>
+       <p data-template-id="stat-4-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Zufriedenheit 💜</p>
+      </div>
      </div>
     </div>
    </section><!-- Testimonials -->
-   <section id="testimonials" class="max-w-6xl mx-auto px-6 py-20">
-    <h2 data-template-id="testimonials-title" class="canva-text text-3xl font-bold text-center mb-12 reveal" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Creator lieben Postly. 💬</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-     <div data-template-id="testimonial-card-1" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="animation-delay: 0s; background: rgb(255, 255, 255);">
-      <p data-template-id="testimonial-1-text" class="canva-text text-sm italic" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">"Postly hat meinen Workflow komplett verändert. Ich spare jeden Tag mindestens eine Stunde. 🙏"</p>
-      <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-1-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/30468668/pexels-photo-30468668.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="A portrait of a smiling woman with blond hair in a white blazer">
-       <div>
-        <p data-template-id="testimonial-1-name" class="canva-text text-sm font-semibold" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Laura Meier</p>
-        <p data-template-id="testimonial-1-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Content Managerin</p>
+   <section id="testimonials" class="w-full bg-gradient-to-b from-orange-50 via-white to-yellow-50 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+     <h2 data-template-id="testimonials-title" class="canva-text text-3xl font-bold text-center mb-12 reveal" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Creator lieben Postly. 💬</h2>
+     <div class="grid md:grid-cols-3 gap-6">
+      <div data-template-id="testimonial-card-1" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="animation-delay: 0s; background: rgb(255, 255, 255);">
+       <p data-template-id="testimonial-1-text" class="canva-text text-sm italic" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">"Postly hat meinen Workflow komplett verändert. Ich spare jeden Tag mindestens eine Stunde. 🙏"</p>
+       <div class="flex items-center gap-3 mt-5">
+        <img data-template-id="testimonial-1-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/30468668/pexels-photo-30468668.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="A portrait of a smiling woman with blond hair in a white blazer">
+        <div>
+         <p data-template-id="testimonial-1-name" class="canva-text text-sm font-semibold" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Laura Meier</p>
+         <p data-template-id="testimonial-1-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Content Managerin</p>
+        </div>
        </div>
       </div>
-     </div>
-     <div data-template-id="testimonial-card-2" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="animation-delay: 0.1s; background: rgb(255, 255, 255);">
-      <p data-template-id="testimonial-2-text" class="canva-text text-sm italic" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">"Die Analytics-Funktion zeigt mir genau, was bei meiner Zielgruppe funktioniert. 📊"</p>
-      <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-2-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/4687550/pexels-photo-4687550.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Portrait of a confident businessman in a black suit smiling warmly">
-       <div>
-        <p data-template-id="testimonial-2-name" class="canva-text text-sm font-semibold" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Markus Schmidt</p>
-        <p data-template-id="testimonial-2-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Marketing Lead</p>
+      <div data-template-id="testimonial-card-2" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="animation-delay: 0.1s; background: rgb(255, 255, 255);">
+       <p data-template-id="testimonial-2-text" class="canva-text text-sm italic" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">"Die Analytics-Funktion zeigt mir genau, was bei meiner Zielgruppe funktioniert. 📊"</p>
+       <div class="flex items-center gap-3 mt-5">
+        <img data-template-id="testimonial-2-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/4687550/pexels-photo-4687550.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Portrait of a confident businessman in a black suit smiling warmly">
+        <div>
+         <p data-template-id="testimonial-2-name" class="canva-text text-sm font-semibold" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Markus Schmidt</p>
+         <p data-template-id="testimonial-2-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Marketing Lead</p>
+        </div>
        </div>
       </div>
-     </div>
-     <div data-template-id="testimonial-card-3" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="animation-delay: 0.2s; background: rgb(255, 255, 255);">
-      <p data-template-id="testimonial-3-text" class="canva-text text-sm italic" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">"Endlich ein Tool, das Planung und Erstellung vereint. Absolut empfehlenswert! 🔥"</p>
-      <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-3-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Portrait of a happy man with arms crossed, exuding confidence">
-       <div>
-        <p data-template-id="testimonial-3-name" class="canva-text text-sm font-semibold" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Jonas Weber</p>
-        <p data-template-id="testimonial-3-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Freelance Creator</p>
+      <div data-template-id="testimonial-card-3" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="animation-delay: 0.2s; background: rgb(255, 255, 255);">
+       <p data-template-id="testimonial-3-text" class="canva-text text-sm italic" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">"Endlich ein Tool, das Planung und Erstellung vereint. Absolut empfehlenswert! 🔥"</p>
+       <div class="flex items-center gap-3 mt-5">
+        <img data-template-id="testimonial-3-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Portrait of a happy man with arms crossed, exuding confidence">
+        <div>
+         <p data-template-id="testimonial-3-name" class="canva-text text-sm font-semibold" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Jonas Weber</p>
+         <p data-template-id="testimonial-3-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Freelance Creator</p>
+        </div>
        </div>
       </div>
      </div>
     </div>
    </section><!-- Pricing -->
-   <section id="pricing" class="max-w-6xl mx-auto px-6 py-20">
-    <h2 data-template-id="pricing-title" class="canva-text text-3xl font-bold text-center mb-12 reveal" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Wähle den Plan, der zu dir passt. 💎</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-     <div data-template-id="pricing-card-1" class="canva-card p-7 rounded-2xl border border-gray-100 feature-hover reveal" style="animation-delay: 0s; background: rgb(255, 255, 255);">
-      <h3 data-template-id="pricing-1-name" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Starter</h3>
-      <p data-template-id="pricing-1-price" class="canva-text text-3xl font-bold mt-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">€0</p>
-      <p data-template-id="pricing-1-desc" class="canva-text text-sm mt-2" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Für Einsteiger. Grundlegende Tools zum Starten.</p><button data-template-id="pricing-1-cta" class="canva-button mt-6 w-full py-2.5 rounded-xl font-medium text-sm" style="background: rgb(243, 244, 246); color: rgb(55, 65, 81); font-weight: 600; font-style: normal; font-size: 16px;">Kostenlos starten</button>
-     </div>
-     <div data-template-id="pricing-card-2" class="canva-card p-7 rounded-2xl border-2 border-indigo-500 relative feature-hover reveal" style="animation-delay: 0.1s; background: rgb(255, 255, 255);"><span data-template-id="pricing-2-badge" class="canva-tag absolute -top-3 left-6 px-3 py-0.5 rounded-full text-xs font-semibold pulse-animate" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">⭐ Beliebt</span>
-      <h3 data-template-id="pricing-2-name" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Pro</h3>
-      <p data-template-id="pricing-2-price" class="canva-text text-3xl font-bold mt-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">€29/mo</p>
-      <p data-template-id="pricing-2-desc" class="canva-text text-sm mt-2" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Für Profis. Alle Tools, unbegrenzte Inhalte.</p><button data-template-id="pricing-2-cta" class="canva-button mt-6 w-full py-2.5 rounded-xl font-medium text-sm" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Pro wählen</button>
-     </div>
-     <div data-template-id="pricing-card-3" class="canva-card p-7 rounded-2xl border border-gray-100 feature-hover reveal" style="animation-delay: 0.2s; background: rgb(255, 255, 255);">
-      <h3 data-template-id="pricing-3-name" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Team</h3>
-      <p data-template-id="pricing-3-price" class="canva-text text-3xl font-bold mt-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">€79/mo</p>
-      <p data-template-id="pricing-3-desc" class="canva-text text-sm mt-2" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Für Teams. Zusammenarbeit und erweiterte Analytics.</p><button data-template-id="pricing-3-cta" class="canva-button mt-6 w-full py-2.5 rounded-xl font-medium text-sm" style="background: rgb(243, 244, 246); color: rgb(55, 65, 81); font-weight: 600; font-style: normal; font-size: 16px;">Team starten</button>
+   <section id="pricing" class="w-full bg-gradient-to-b from-yellow-50 via-white to-green-50 py-20">
+    <div class="max-w-6xl mx-auto px-6">
+     <h2 data-template-id="pricing-title" class="canva-text text-3xl font-bold text-center mb-12 reveal" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Wähle den Plan, der zu dir passt. 💎</h2>
+     <div class="grid md:grid-cols-3 gap-6">
+      <div data-template-id="pricing-card-1" class="canva-card p-7 rounded-2xl border border-gray-100 feature-hover reveal" style="animation-delay: 0s; background: rgb(255, 255, 255);">
+       <h3 data-template-id="pricing-1-name" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Starter</h3>
+       <p data-template-id="pricing-1-price" class="canva-text text-3xl font-bold mt-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">€0</p>
+       <p data-template-id="pricing-1-desc" class="canva-text text-sm mt-2" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Für Einsteiger. Grundlegende Tools zum Starten.</p><button data-template-id="pricing-1-cta" class="canva-button mt-6 w-full py-2.5 rounded-xl font-medium text-sm" style="background: rgb(243, 244, 246); color: rgb(55, 65, 81); font-weight: 600; font-style: normal; font-size: 16px;">Kostenlos starten</button>
+      </div>
+      <div data-template-id="pricing-card-2" class="canva-card p-7 rounded-2xl border-2 border-indigo-500 relative feature-hover reveal" style="animation-delay: 0.1s; background: rgb(255, 255, 255);">
+       <span data-template-id="pricing-2-badge" class="canva-tag absolute -top-3 left-6 px-3 py-0.5 rounded-full text-xs font-semibold pulse-animate" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">⭐ Beliebt</span>
+       <h3 data-template-id="pricing-2-name" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Pro</h3>
+       <p data-template-id="pricing-2-price" class="canva-text text-3xl font-bold mt-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">€29/mo</p>
+       <p data-template-id="pricing-2-desc" class="canva-text text-sm mt-2" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Für Profis. Alle Tools, unbegrenzte Inhalte.</p><button data-template-id="pricing-2-cta" class="canva-button mt-6 w-full py-2.5 rounded-xl font-medium text-sm" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Pro wählen</button>
+      </div>
+      <div data-template-id="pricing-card-3" class="canva-card p-7 rounded-2xl border border-gray-100 feature-hover reveal" style="animation-delay: 0.2s; background: rgb(255, 255, 255);">
+       <h3 data-template-id="pricing-3-name" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Team</h3>
+       <p data-template-id="pricing-3-price" class="canva-text text-3xl font-bold mt-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">€79/mo</p>
+       <p data-template-id="pricing-3-desc" class="canva-text text-sm mt-2" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Für Teams. Zusammenarbeit und erweiterte Analytics.</p><button data-template-id="pricing-3-cta" class="canva-button mt-6 w-full py-2.5 rounded-xl font-medium text-sm" style="background: rgb(243, 244, 246); color: rgb(55, 65, 81); font-weight: 600; font-style: normal; font-size: 16px;">Team starten</button>
+      </div>
      </div>
     </div>
    </section><!-- CTA -->
-   <section class="max-w-5xl mx-auto px-6 py-16 reveal">
-    <div data-template-id="cta-banner" class="canva-banner rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, rgb(99, 102, 241), rgb(139, 92, 246));">
-     <h2 data-template-id="cta-title" class="canva-text text-3xl font-bold" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 24px;">Bereit, deinen Content auf das nächste Level zu bringen? 🚀</h2>
-     <p data-template-id="cta-subtitle" class="canva-text mt-3 text-base" style="color: rgb(224, 231, 255); font-weight: 400; font-style: normal; font-size: 16px;">Starte jetzt kostenlos und überzeuge dich selbst.</p><button data-template-id="cta-button" class="canva-button mt-8 px-7 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition" style="background: rgb(255, 255, 255); color: rgb(99, 102, 241); font-weight: 700; font-style: normal; font-size: 16px;">Jetzt loslegen ✨</button>
+   <section class="w-full bg-gradient-to-b from-green-50 to-white py-16">
+    <div class="max-w-5xl mx-auto px-6 reveal">
+     <div data-template-id="cta-banner" class="canva-banner rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, rgb(99, 102, 241), rgb(139, 92, 246));">
+      <h2 data-template-id="cta-title" class="canva-text text-3xl font-bold" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 24px;">Bereit, deinen Content auf das nächste Level zu bringen? 🚀</h2>
+      <p data-template-id="cta-subtitle" class="canva-text mt-3 text-base" style="color: rgb(224, 231, 255); font-weight: 400; font-style: normal; font-size: 16px;">Starte jetzt kostenlos und überzeuge dich selbst.</p><button data-template-id="cta-button" class="canva-button mt-8 px-7 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition" style="background: rgb(255, 255, 255); color: rgb(99, 102, 241); font-weight: 700; font-style: normal; font-size: 16px;">Jetzt loslegen ✨</button>
+     </div>
     </div>
    </section>
   </main><!-- Footer -->
@@ -525,8 +558,7 @@
    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
     <div class="flex items-center gap-2">
      <div class="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-300 to-purple-300 flex items-center justify-center">
-      <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4">
-       <path d="M3 12L21 3L12 21L10 14L3 12Z" fill="url(#logoGradient2)" stroke="white" stroke-width="0.5"></path> <defs>
+      <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4"><path d="M3 12L21 3L12 21L10 14L3 12Z" fill="url(#logoGradient2)" stroke="white" stroke-width="0.5"></path> <defs>
         <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
          <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1"></stop>
          <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1"></stop>
@@ -553,5 +585,5 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0d10d24162465d6',t:'MTc4MTY4ODc5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0d11b0dd18bd25a',t:'MTc4MTY4OTM2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body></html>
