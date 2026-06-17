@@ -1,2 +1,2 @@
-# contentai-landingpage
+# postly-landingpage
 Landingpage für KI-gestützte Social-Media-Content-Erstellung
