@@ -14,12 +14,12 @@
     @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.4); } 50% { box-shadow: 0 0 0 8px rgba(99,102,241,0); } }
     @keyframes scale-in { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
     @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-    @keyframes float2 { 0%, 100% { transform: translateY(0px) rotate(-2deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+    @keyframes float2 { 0%, 100% { transform: translateY(0px) rotate(-2deg); } 50% { transform: translateY(-14px) rotate(2deg); } }
     @keyframes float3 { 0%, 100% { transform: translateY(0px) rotate(1deg); } 50% { transform: translateY(-8px) rotate(-1deg); } }
     @keyframes starPop { 0% { transform: scale(0); opacity: 0; } 60% { transform: scale(1.3); } 100% { transform: scale(1); opacity: 1; } }
-    @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-    @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
-    @keyframes slideInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+    @keyframes blob { 0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; } 50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; } }
+    @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .animate-fade-up { animation: fadeUp 0.7s ease forwards; opacity: 0; }
     .animate-fade-in { animation: fadeIn 0.6s ease forwards; opacity: 0; }
     .delay-1 { animation-delay: 0.1s; }
@@ -28,7 +28,6 @@
     .delay-4 { animation-delay: 0.4s; }
     .delay-5 { animation-delay: 0.5s; }
     .delay-6 { animation-delay: 0.6s; }
-    .delay-7 { animation-delay: 0.7s; }
     .reveal { opacity: 0; transform: translateY(25px); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-left { opacity: 0; transform: translateX(-30px); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -36,7 +35,7 @@
     .reveal-right { opacity: 0; transform: translateX(30px); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
     .reveal-right.visible { opacity: 1; transform: translateX(0); }
     .feature-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .feature-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(147,112,219,0.15); }
+    .feature-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(99,102,241,0.12); }
     .nav-item { animation: slideDown 0.5s ease forwards; opacity: 0; }
     .nav-item:nth-child(1) { animation-delay: 0.1s; }
     .nav-item:nth-child(2) { animation-delay: 0.2s; }
@@ -45,69 +44,119 @@
     .pulse-animate { animation: pulse-glow 2s infinite; }
     .stat-card { animation: scale-in 0.6s ease forwards; opacity: 0; }
     .stat-card:nth-child(1) { animation-delay: 0s; }
-    .stat-card:nth-child(2) { animation-delay: 0.1s; }
-    .stat-card:nth-child(3) { animation-delay: 0.2s; }
-    .stat-card:nth-child(4) { animation-delay: 0.3s; }
+    .stat-card:nth-child(2) { animation-delay: 0.15s; }
+    .stat-card:nth-child(3) { animation-delay: 0.3s; }
+    .stat-card:nth-child(4) { animation-delay: 0.45s; }
     .float-1 { animation: float 3s ease-in-out infinite; }
     .float-2 { animation: float2 3.5s ease-in-out infinite; }
     .float-3 { animation: float3 4s ease-in-out infinite; }
+    .blob-animate { animation: blob 8s ease-in-out infinite; }
+    .spin-slow { animation: spin-slow 20s linear infinite; }
     .star-animate { animation: starPop 0.4s ease forwards; opacity: 0; }
     .star-animate:nth-child(1) { animation-delay: 0.1s; }
     .star-animate:nth-child(2) { animation-delay: 0.2s; }
     .star-animate:nth-child(3) { animation-delay: 0.3s; }
     .star-animate:nth-child(4) { animation-delay: 0.4s; }
     .star-animate:nth-child(5) { animation-delay: 0.5s; }
-    .showcase-item { animation: slideInLeft 0.5s ease forwards; opacity: 0; }
-    .showcase-item:nth-child(1) { animation-delay: 0.1s; }
-    .showcase-item:nth-child(2) { animation-delay: 0.2s; }
-    .showcase-item:nth-child(3) { animation-delay: 0.3s; }
-    .showcase-item:nth-child(4) { animation-delay: 0.4s; }
-    .showcase-item:nth-child(5) { animation-delay: 0.5s; }
-    .shimmer-bg { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); background-size: 200% 100%; animation: shimmer 3s infinite; }
+    .marquee-track { animation: marquee 25s linear infinite; }
   </style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="/_sdk/resizing_sdk.js" type="text/javascript"></script>
  </head>
- <body data-template-id="__page-root" class="w-full min-h-screen" style="background: rgb(255, 255, 255);"><!-- Nav -->
-  <nav class="w-full border-b border-gray-100 bg-white/80 backdrop-blur sticky top-0 z-50">
+ <body data-template-id="__page-root" class="w-full min-h-screen overflow-x-hidden" style="background: linear-gradient(rgb(245, 243, 255), rgb(238, 242, 255), rgb(240, 249, 255), rgb(253, 244, 255), rgb(245, 243, 255));"><!-- Nav -->
+  <nav class="w-full border-b border-white/20 bg-white/70 backdrop-blur-xl sticky top-0 z-50">
    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <div class="flex items-center gap-1">
-     <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-300 to-purple-300 flex items-center justify-center">
+     <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-200">
       <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6">
-       <path d="M3 12L21 3L12 21L10 14L3 12Z" fill="url(#logoGradient)" stroke="white" stroke-width="0.5"></path><defs>
-        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-         <stop offset="0%" style="stop-color:#60a5fa"></stop>
-         <stop offset="100%" style="stop-color:#a78bfa"></stop>
-        </linearGradient>
-       </defs>
+       <path d="M3 12L21 3L12 21L10 14L3 12Z" fill="white" stroke="white" stroke-width="0.5"></path>
       </svg>
      </div><span data-template-id="nav-logo" class="canva-text font-bold text-2xl" style="color: rgb(99, 102, 241); font-weight: 700; font-style: normal; font-size: 28px;">Postly</span>
     </div>
-    <div class="hidden md:flex items-center gap-8 text-sm text-gray-600"><a href="#about" data-template-id="nav-link-about" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Über uns</a> <a href="#features" data-template-id="nav-link-1" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Features</a> <a href="#pricing" data-template-id="nav-link-2" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Preise</a> <a href="#contact" data-template-id="nav-link-3" class="canva-link nav-item hover:text-gray-900" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Kontakt</a>
+    <div class="hidden md:flex items-center gap-8 text-sm"><a href="#about" data-template-id="nav-link-about" class="canva-link nav-item hover:text-indigo-600 transition" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Über uns</a> <a href="#features" data-template-id="nav-link-1" class="canva-link nav-item hover:text-indigo-600 transition" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Features</a> <a href="#pricing" data-template-id="nav-link-2" class="canva-link nav-item hover:text-indigo-600 transition" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Preise</a> <a href="#contact" data-template-id="nav-link-3" class="canva-link nav-item hover:text-indigo-600 transition" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Kontakt</a>
     </div>
-    <div class="hidden md:flex items-center gap-3"><button type="button" class="w-9 h-9 rounded-lg hover:bg-gray-100 flex items-center justify-center transition text-gray-600"><i data-lucide="user-circle" style="width:20px;height:20px;"></i></button> <button data-template-id="nav-cta" class="canva-button px-4 py-2 rounded-lg text-sm font-medium" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Kostenlos starten</button>
+    <div class="hidden md:flex items-center gap-3"><button data-template-id="nav-cta" class="canva-button px-5 py-2.5 rounded-xl text-sm font-medium shadow-lg shadow-indigo-200 hover:shadow-xl transition" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Kostenlos starten</button>
     </div>
    </div>
   </nav>
-  <main class="w-full"><!-- Hero Section (distinct background) -->
-   <section data-template-id="hero-section" class="canva-section w-full pb-16" style="background: linear-gradient(135deg, rgb(238, 242, 255), rgb(245, 243, 255), rgb(237, 233, 254));"><!-- Hero -->
-    <div class="max-w-6xl mx-auto px-6 pt-16 pb-12 grid md:grid-cols-2 gap-10 items-center">
+  <main class="w-full"><!-- Hero Section -->
+   <section data-template-id="hero-section" class="canva-section w-full relative overflow-hidden" style="background: linear-gradient(135deg, rgb(238, 242, 255), rgb(245, 243, 255), rgb(237, 233, 254));"><!-- Animated background blobs -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+     <div class="absolute -top-20 -left-20 w-96 h-96 bg-gradient-to-br from-indigo-200/60 to-purple-200/60 rounded-full blur-3xl blob-animate"></div>
+     <div class="absolute top-40 right-0 w-80 h-80 bg-gradient-to-br from-pink-200/50 to-blue-200/50 rounded-full blur-3xl blob-animate" style="animation-delay:-3s;"></div>
+     <div class="absolute bottom-0 left-1/3 w-72 h-72 bg-gradient-to-br from-cyan-200/40 to-indigo-200/40 rounded-full blur-3xl blob-animate" style="animation-delay:-5s;"></div><!-- Floating geometric shapes -->
+     <div class="absolute top-20 right-20 w-12 h-12 border-2 border-indigo-300/50 rounded-lg float-1 spin-slow"></div>
+     <div class="absolute top-60 left-16 w-8 h-8 bg-purple-300/30 rounded-full float-2"></div>
+     <div class="absolute bottom-20 right-40 w-6 h-6 border-2 border-pink-300/40 rounded-full float-3"></div>
+     <div class="absolute top-32 left-1/2 w-4 h-4 bg-indigo-400/20 rotate-45 float-2"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pt-20 pb-20 grid md:grid-cols-2 gap-12 items-center relative z-10">
      <div class="animate-fade-up">
       <p data-template-id="hero-tagline" class="canva-text text-sm font-semibold uppercase tracking-wider mb-4" style="color: rgb(99, 102, 241); font-weight: 600; font-style: normal; font-size: 13px; letter-spacing: 0.1rem;">SOCIAL MEDIA MANAGEMENT</p>
       <h1 data-template-id="hero-title" class="canva-text text-4xl md:text-5xl font-bold leading-tight" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 32px;">Erstelle Content, der wirklich wirkt. ✨</h1>
-      <p data-template-id="hero-subtitle" class="canva-text mt-5 text-lg" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Plane, erstelle und veröffentliche — alles an einem Ort. Postly gibt dir die Tools und KI-Unterstützung, die du brauchst. 🚀</p><button data-template-id="hero-cta" class="canva-button mt-8 px-7 py-3 rounded-xl font-semibold text-base shadow-lg shadow-indigo-200 hover:shadow-xl transition" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Jetzt kostenlos starten</button>
+      <p data-template-id="hero-subtitle" class="canva-text mt-5 text-lg leading-relaxed" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Plane, erstelle und veröffentliche — alles an einem Ort. Postly gibt dir die Tools und KI-Unterstützung, die du brauchst. 🚀</p>
+      <div class="flex items-center gap-4 mt-8"><button data-template-id="hero-cta" class="canva-button px-7 py-3.5 rounded-xl font-semibold text-base shadow-xl shadow-indigo-300/40 hover:shadow-2xl hover:-translate-y-0.5 transition" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 16px;">Jetzt kostenlos starten</button> <button data-template-id="hero-cta-secondary" class="canva-button px-6 py-3.5 rounded-xl font-medium text-base border-2 hover:-translate-y-0.5 transition" style="background: transparent; color: rgb(99, 102, 241); font-weight: 600; font-style: normal; font-size: 16px;">Demo ansehen ▶</button>
+      </div><!-- Trust indicators -->
+      <div class="mt-8 flex items-center gap-4">
+       <div class="flex -space-x-2"><img data-template-id="trust-avatar-1" class="canva-image w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" src="https://images.pexels.com/photos/30468668/pexels-photo-30468668.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Professional woman portrait"> <img data-template-id="trust-avatar-2" class="canva-image w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Young man portrait"> <img data-template-id="trust-avatar-3" class="canva-image w-8 h-8 rounded-full border-2 border-white object-cover" loading="lazy" src="https://images.pexels.com/photos/5792641/pexels-photo-5792641.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Cheerful man portrait">
+       </div>
+       <p data-template-id="hero-trust-text" class="canva-text text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">10.000+ Creator vertrauen Postly</p>
+      </div>
      </div>
      <div class="animate-fade-up delay-2">
-      <div class="rounded-2xl overflow-hidden shadow-2xl shadow-indigo-100 border border-gray-100"><img data-template-id="hero-image" class="canva-image w-full h-80 object-cover" loading="lazy" src="https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1280" alt="Hands holding a smartphone while browsing a social media app in front of a desktop computer.">
+      <div class="relative">
+       <div class="absolute -inset-4 bg-gradient-to-r from-indigo-400/20 to-purple-400/20 rounded-3xl blur-xl"></div>
+       <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-indigo-200/50 border border-white/50"><img data-template-id="hero-image" class="canva-image w-full h-80 object-cover" loading="lazy" src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1280" alt="Diverse professionals unite for teamwork around a wooden table with laptops and documents">
+       </div><!-- Floating badge -->
+       <div class="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-3 border border-gray-100 float-1">
+        <div class="flex items-center gap-2">
+         <div class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center text-green-600 text-sm">
+          ✓
+         </div>
+         <div>
+          <div class="text-xs font-bold text-gray-800">
+           +127%
+          </div>
+          <div class="text-[10px] text-gray-500">
+           Engagement
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-3 border border-gray-100 float-2">
+        <div class="flex items-center gap-2">
+         <div class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600 text-sm">
+          📈
+         </div>
+         <div>
+          <div class="text-xs font-bold text-gray-800">
+           12.8K
+          </div>
+          <div class="text-[10px] text-gray-500">
+           Follower
+          </div>
+         </div>
+        </div>
+       </div>
       </div>
      </div>
     </div>
-   </section><!-- Dashboard Section (separate background) -->
-   <section data-template-id="dashboard-section" class="canva-section w-full py-16" style="background: rgb(255, 255, 255);">
-    <div class="max-w-6xl mx-auto px-6 pb-8 reveal text-center">
+   </section><!-- Logos Trust Bar -->
+   <section class="w-full py-10 bg-white/50 border-y border-gray-100 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+     <p data-template-id="logos-heading" class="canva-text text-sm font-medium mb-6" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Vertraut von Teams bei führenden Unternehmen</p>
+     <div class="flex items-center justify-center gap-12 opacity-50 flex-wrap"><span class="text-2xl font-bold text-gray-400">Shopify</span> <span class="text-2xl font-bold text-gray-400">Notion</span> <span class="text-2xl font-bold text-gray-400">Figma</span> <span class="text-2xl font-bold text-gray-400">Slack</span> <span class="text-2xl font-bold text-gray-400">Stripe</span>
+     </div>
+    </div>
+   </section><!-- Dashboard Section -->
+   <section data-template-id="dashboard-section" class="canva-section w-full py-20 relative" style="background: rgb(255, 255, 255);">
+    <div class="absolute inset-0 pointer-events-none">
+     <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-indigo-50/50 to-transparent"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 pb-8 reveal text-center relative z-10">
      <h2 data-template-id="dashboard-heading" class="canva-text text-xl font-bold" style="color: rgb(167, 139, 250); font-weight: 700; font-style: normal; font-size: 24px;">✨ Dein persönliches Dashboard — immer alles im Blick</h2>
     </div>
-    <div class="rounded-2xl overflow-hidden shadow-2xl shadow-gray-200 border border-gray-100 max-w-4xl mx-auto bg-white animate-fade-up delay-4">
+    <div class="rounded-2xl overflow-hidden shadow-2xl shadow-indigo-100/50 border border-gray-100 max-w-4xl mx-auto bg-white animate-fade-up delay-4 relative z-10">
      <div class="border-b border-gray-100">
       <div class="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-gray-50 to-white">
        <div class="flex gap-2">
@@ -120,10 +169,10 @@
        </div>
       </div>
      </div>
-     <div class="grid grid-cols-5 gap-0 divide-x divide-gray-100"><!-- Profile Sidebar -->
+     <div class="grid grid-cols-5 gap-0 divide-x divide-gray-100">
       <div class="col-span-1 bg-gray-50 p-4 space-y-4">
        <div class="flex flex-col items-center text-center">
-        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-300 to-purple-300 flex items-center justify-center text-white font-bold text-lg mb-2">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center text-white font-bold text-lg mb-2">
          S
         </div>
         <div class="text-xs font-semibold text-gray-800">
@@ -152,8 +201,8 @@
         </div>
        </div>
        <div class="space-y-2 pt-2 border-t border-gray-200">
-        <div class="flex items-center gap-2 bg-blue-100 rounded-lg px-2 py-1.5">
-         <div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div><span class="text-[10px] font-medium text-blue-700">Dashboard</span>
+        <div class="flex items-center gap-2 bg-indigo-100 rounded-lg px-2 py-1.5">
+         <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div><span class="text-[10px] font-medium text-indigo-700">Dashboard</span>
         </div>
         <div class="flex items-center gap-2 px-2 py-1.5">
          <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div><span class="text-[10px] text-gray-500">Content</span>
@@ -164,19 +213,8 @@
         <div class="flex items-center gap-2 px-2 py-1.5">
          <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div><span class="text-[10px] text-gray-500">Analytics</span>
         </div>
-        <div class="flex items-center gap-2 px-2 py-1.5">
-         <div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div><span class="text-[10px] text-gray-500">Einstellungen</span>
-        </div>
        </div>
-       <div class="pt-2 border-t border-gray-200">
-        <div class="text-[9px] text-gray-400 mb-1">
-         Pro Plan · 78% genutzt
-        </div>
-        <div class="w-full h-1.5 bg-gray-200 rounded-full">
-         <div class="h-1.5 bg-blue-400 rounded-full" style="width:78%"></div>
-        </div>
-       </div>
-      </div><!-- Main Content -->
+      </div>
       <div class="col-span-4 p-5 space-y-4">
        <div class="flex items-center justify-between">
         <div>
@@ -184,7 +222,7 @@
           Hallo Sarah! 👋
          </div>
          <div class="text-[10px] text-gray-400">
-          Dienstag, 17. Juni 2026
+          Donnerstag, 19. Juni 2026
          </div>
         </div>
         <div class="flex gap-2">
@@ -197,11 +235,11 @@
         </div>
        </div>
        <div class="grid grid-cols-4 gap-2">
-        <div class="bg-gradient-to-br from-blue-50 to-white rounded-lg border border-blue-100 p-2.5">
+        <div class="bg-gradient-to-br from-indigo-50 to-white rounded-lg border border-indigo-100 p-2.5">
          <div class="text-[10px] text-gray-500">
           📤 Veröffentlicht
          </div>
-         <div class="text-xl font-bold text-blue-600">
+         <div class="text-xl font-bold text-indigo-600">
           156
          </div>
          <div class="text-[9px] text-green-600">
@@ -244,144 +282,41 @@
        </div>
        <div class="grid grid-cols-2 gap-3">
         <div class="bg-white rounded-lg border border-gray-200 p-3">
-         <div class="flex items-center justify-between mb-2">
-          <div class="text-[10px] font-semibold text-gray-600">
-           📆 Content Kalender - Juni
-          </div>
-          <div class="flex gap-1">
-           <div class="w-4 h-4 rounded border border-gray-200 flex items-center justify-center text-[8px] text-gray-400">
-            &lt;
-           </div>
-           <div class="w-4 h-4 rounded border border-gray-200 flex items-center justify-center text-[8px] text-gray-400">
-            &gt;
-           </div>
-          </div>
-         </div>
-         <div class="grid grid-cols-7 gap-0.5 text-center text-[9px]">
-          <div class="text-gray-400 py-0.5">
-           Mo
-          </div>
-          <div class="text-gray-400 py-0.5">
-           Di
-          </div>
-          <div class="text-gray-400 py-0.5">
-           Mi
-          </div>
-          <div class="text-gray-400 py-0.5">
-           Do
-          </div>
-          <div class="text-gray-400 py-0.5">
-           Fr
-          </div>
-          <div class="text-gray-400 py-0.5">
-           Sa
-          </div>
-          <div class="text-gray-400 py-0.5">
-           So
-          </div>
-          <div class="py-0.5">
-           1
-          </div>
-          <div class="py-0.5">
-           2
-          </div>
-          <div class="py-0.5">
-           3
-          </div>
-          <div class="py-0.5 bg-blue-100 rounded text-blue-600 font-bold">
-           4
-          </div>
-          <div class="py-0.5">
-           5
-          </div>
-          <div class="py-0.5">
-           6
-          </div>
-          <div class="py-0.5">
-           7
-          </div>
-          <div class="py-0.5">
-           8
-          </div>
-          <div class="py-0.5 bg-indigo-200 rounded text-indigo-700 font-bold">
-           9
-          </div>
-          <div class="py-0.5">
-           10
-          </div>
-          <div class="py-0.5">
-           11
-          </div>
-          <div class="py-0.5 bg-purple-200 rounded text-purple-600 font-bold">
-           12
-          </div>
-          <div class="py-0.5">
-           13
-          </div>
-          <div class="py-0.5">
-           14
-          </div>
-          <div class="py-0.5">
-           15
-          </div>
-          <div class="py-0.5">
-           16
-          </div>
-          <div class="py-0.5 bg-blue-400 rounded text-white font-bold">
-           17
-          </div>
-          <div class="py-0.5">
-           18
-          </div>
-          <div class="py-0.5 bg-purple-200 rounded text-purple-600 font-bold">
-           19
-          </div>
-          <div class="py-0.5">
-           20
-          </div>
-          <div class="py-0.5">
-           21
-          </div>
-         </div>
-        </div>
-        <div class="bg-white rounded-lg border border-gray-200 p-3">
          <div class="text-[10px] font-semibold text-gray-600 mb-2">
           📊 Leistung (7 Tage)
          </div>
          <div class="flex items-end gap-1 h-14">
-          <div class="flex-1 bg-blue-200 rounded-t" style="height:30%"></div>
-          <div class="flex-1 bg-blue-400 rounded-t" style="height:60%"></div>
-          <div class="flex-1 bg-blue-300 rounded-t" style="height:45%"></div>
+          <div class="flex-1 bg-indigo-200 rounded-t" style="height:30%"></div>
+          <div class="flex-1 bg-indigo-400 rounded-t" style="height:60%"></div>
+          <div class="flex-1 bg-indigo-300 rounded-t" style="height:45%"></div>
           <div class="flex-1 bg-purple-400 rounded-t" style="height:90%"></div>
-          <div class="flex-1 bg-blue-200 rounded-t" style="height:35%"></div>
-          <div class="flex-1 bg-blue-400 rounded-t" style="height:70%"></div>
-          <div class="flex-1 bg-purple-400 rounded-t" style="height:100%"></div>
+          <div class="flex-1 bg-indigo-200 rounded-t" style="height:35%"></div>
+          <div class="flex-1 bg-indigo-400 rounded-t" style="height:70%"></div>
+          <div class="flex-1 bg-purple-500 rounded-t" style="height:100%"></div>
          </div>
-         <div class="flex justify-between mt-1 text-[8px] text-gray-400">
-          <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
-         </div>
-        </div>
-       </div>
-       <div class="space-y-1.5">
-        <div class="text-[10px] font-semibold text-gray-600 mb-1">
-         🕐 Letzte Aktivitäten
-        </div>
-        <div class="flex items-center gap-2 bg-green-50 border border-green-100 rounded-lg p-2">
-         <span class="text-xs">✅</span>
-         <div class="text-[10px] text-green-700">
-          Instagram Post veröffentlicht · vor 5 Min.
+         <div class="flex justify-between mt-1 text-[8px] text-gray-400"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
          </div>
         </div>
-        <div class="flex items-center gap-2 bg-blue-50 border border-blue-100 rounded-lg p-2">
-         <span class="text-xs">⏰</span>
-         <div class="text-[10px] text-blue-700">
-          LinkedIn wird in 2h veröffentlicht
+        <div class="bg-white rounded-lg border border-gray-200 p-3">
+         <div class="text-[10px] font-semibold text-gray-600 mb-2">
+          🕐 Letzte Aktivitäten
          </div>
-        </div>
-        <div class="flex items-center gap-2 bg-purple-50 border border-purple-100 rounded-lg p-2">
-         <span class="text-xs">✍️</span>
-         <div class="text-[10px] text-purple-700">
-          Neuer Entwurf gespeichert: "Sommer-Kampagne"
+         <div class="space-y-1.5">
+          <div class="flex items-center gap-2 bg-green-50 border border-green-100 rounded p-1.5"><span class="text-[10px]">✅</span>
+           <div class="text-[9px] text-green-700">
+            Instagram Post veröffentlicht
+           </div>
+          </div>
+          <div class="flex items-center gap-2 bg-blue-50 border border-blue-100 rounded p-1.5"><span class="text-[10px]">⏰</span>
+           <div class="text-[9px] text-blue-700">
+            LinkedIn in 2h geplant
+           </div>
+          </div>
+          <div class="flex items-center gap-2 bg-purple-50 border border-purple-100 rounded p-1.5"><span class="text-[10px]">✍️</span>
+           <div class="text-[9px] text-purple-700">
+            Entwurf: "Sommer-Kampagne"
+           </div>
+          </div>
          </div>
         </div>
        </div>
@@ -389,70 +324,58 @@
      </div>
     </div>
    </section><!-- Features -->
-   <section id="features" class="w-full bg-gradient-to-b from-blue-50 via-white to-purple-50 py-20">
-    <div class="max-w-6xl mx-auto px-6">
+   <section id="features" class="w-full py-20 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+     <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-indigo-100/60 to-transparent rounded-full blur-3xl"></div>
+     <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-purple-100/60 to-transparent rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
      <h2 data-template-id="features-title" class="canva-text text-3xl font-bold text-center reveal" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Alles, was du für erfolgreichen Content brauchst. 🎯</h2>
      <div class="grid md:grid-cols-2 gap-6 mt-12">
-      <div data-template-id="feature-card-1" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
-       <div class="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-xl mb-3">
+      <div data-template-id="feature-card-1" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
+       <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-100 to-indigo-50 flex items-center justify-center text-2xl mb-4">
         ✏️
        </div>
        <h3 data-template-id="feature-1-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Content Erstellung ✏️</h3>
        <p data-template-id="feature-1-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Erstelle Texte, Grafiken und Videos mit KI-Unterstützung in Minuten.</p>
       </div>
-      <div data-template-id="feature-card-2" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
-       <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-xl mb-3">
+      <div data-template-id="feature-card-2" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
+       <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center text-2xl mb-4">
         📅
        </div>
        <h3 data-template-id="feature-2-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Planung &amp; Scheduling 📅</h3>
        <p data-template-id="feature-2-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Plane deinen Content-Kalender und veröffentliche automatisch.</p>
       </div>
-      <div data-template-id="feature-card-3" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
-       <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-xl mb-3">
+      <div data-template-id="feature-card-3" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
+       <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center text-2xl mb-4">
         📈
        </div>
        <h3 data-template-id="feature-3-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Analytics &amp; Insights 📈</h3>
        <p data-template-id="feature-3-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Verstehe was funktioniert mit detaillierten Performance-Daten.</p>
       </div>
-      <div data-template-id="feature-card-4" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
-       <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-xl mb-3">
+      <div data-template-id="feature-card-4" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
+       <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center text-2xl mb-4">
         👥
        </div>
        <h3 data-template-id="feature-4-title" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Team-Zusammenarbeit 👥</h3>
        <p data-template-id="feature-4-desc" class="canva-text mt-2 text-sm" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Arbeite nahtlos mit deinem Team an Inhalten zusammen.</p>
       </div>
-     </div>
-    </div>
-   </section><!-- Video Section -->
-   <section class="w-full bg-gradient-to-b from-purple-50 via-white to-indigo-50 py-16">
-    <div class="max-w-6xl mx-auto px-6 reveal">
-     <div class="text-center mb-10">
-      <h2 data-template-id="video-title" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Sieh dir an, wie Postly in 60 Sekunden funktioniert. 🎬</h2>
-     </div>
-     <div class="max-w-2xl mx-auto">
-      <div class="relative w-full" style="aspect-ratio:16/10;">
-       <div class="absolute inset-0 flex flex-col">
-        <div class="flex-1 bg-gradient-to-br from-gray-900 to-gray-800 rounded-t-3xl flex items-center justify-center relative shadow-lg border-8 border-gray-950">
-         <div class="w-full h-full rounded-t-2xl bg-gradient-to-br from-blue-400 to-purple-300 flex items-center justify-center overflow-hidden relative"><button type="button" class="relative z-10 w-16 h-16 rounded-full bg-white shadow-lg hover:scale-110 transition transform flex items-center justify-center group float-1">
-           <svg class="w-6 h-6 text-blue-400 ml-1 group-hover:scale-110 transition" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"></path>
-           </svg></button>
-         </div>
-        </div>
-        <div class="h-6 bg-gray-950 rounded-b-lg flex items-center justify-center relative">
-         <div class="w-32 h-1 bg-gray-800 rounded-full"></div>
-        </div>
-       </div>
+     </div><!-- Feature visual image -->
+     <div class="mt-16 reveal">
+      <div class="rounded-2xl overflow-hidden shadow-xl border border-gray-100 max-w-2xl mx-auto"><img data-template-id="feature-visual-image" class="canva-image w-full h-64 object-cover" loading="lazy" src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A smartphone displaying various social media icons held in a hand">
       </div>
      </div>
     </div>
    </section><!-- Content Hub -->
-   <section class="w-full bg-gradient-to-b from-indigo-50 via-white to-pink-50 py-16">
-    <div class="max-w-6xl mx-auto px-6 reveal">
+   <section class="w-full py-20 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+     <div class="absolute top-1/2 left-0 w-64 h-64 bg-gradient-to-r from-pink-100/50 to-transparent rounded-full blur-3xl -translate-y-1/2"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
      <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="reveal-left">
        <h2 data-template-id="hub-title" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Dein gesamter Content an einem Ort. 🗂️</h2>
-       <p data-template-id="hub-desc" class="canva-text mt-4 text-base" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Organisiere alle Inhalte, Entwürfe und Veröffentlichungen in einem übersichtlichen Dashboard.</p>
+       <p data-template-id="hub-desc" class="canva-text mt-4 text-base leading-relaxed" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Organisiere alle Inhalte, Entwürfe und Veröffentlichungen in einem übersichtlichen Dashboard.</p>
        <div class="mt-6 space-y-3">
         <div class="flex items-center gap-3">
          <span class="text-lg">🗂️</span><span data-template-id="hub-feature-1" class="canva-text text-sm" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Alle Entwürfe &amp; Medien zentral verwalten</span>
@@ -465,39 +388,80 @@
         </div>
        </div>
       </div>
-      <div class="reveal-right rounded-2xl overflow-hidden shadow-lg border border-gray-100"><img data-template-id="hub-image" class="canva-image w-full h-64 object-cover" loading="lazy" src="https://images.pexels.com/photos/6991867/pexels-photo-6991867.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close-up of a laptop keyboard covered with colorful sticky notes, ideal for productivity themes.">
+      <div class="reveal-right">
+       <div class="relative">
+        <div class="absolute -inset-3 bg-gradient-to-r from-purple-200/30 to-pink-200/30 rounded-3xl blur-xl"></div>
+        <div class="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100"><img data-template-id="hub-image" class="canva-image w-full h-72 object-cover" loading="lazy" src="https://images.pexels.com/photos/6991867/pexels-photo-6991867.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close-up of a laptop keyboard covered with colorful sticky notes">
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Community Section (NEW) -->
+   <section class="w-full py-20 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+     <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-cyan-100/40 to-transparent rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+     <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="reveal-left order-2 md:order-1">
+       <div class="relative">
+        <div class="absolute -inset-3 bg-gradient-to-r from-cyan-200/30 to-indigo-200/30 rounded-3xl blur-xl"></div>
+        <div class="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100"><img data-template-id="community-image" class="canva-image w-full h-72 object-cover" loading="lazy" src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Diverse team collaborating in a meeting, showcasing teamwork and cooperation">
+        </div>
+       </div>
+      </div>
+      <div class="reveal-right order-1 md:order-2">
+       <h2 data-template-id="community-title" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Werde Teil der Creator-Community. 🌟</h2>
+       <p data-template-id="community-desc" class="canva-text mt-4 text-base leading-relaxed" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Tausche dich mit Gleichgesinnten aus, lerne Best Practices und wachse gemeinsam.</p>
+       <div class="mt-6 space-y-3">
+        <div class="flex items-center gap-3">
+         <span class="text-lg">💡</span><span data-template-id="community-feature-1" class="canva-text text-sm" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Exklusive Workshops &amp; Webinare</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <span class="text-lg">🤝</span><span data-template-id="community-feature-2" class="canva-text text-sm" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Netzwerk mit 10.000+ Creatorn</span>
+        </div>
+        <div class="flex items-center gap-3">
+         <span class="text-lg">🎯</span><span data-template-id="community-feature-3" class="canva-text text-sm" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">Persönliche Wachstumsstrategien</span>
+        </div>
+       </div>
       </div>
      </div>
     </div>
    </section><!-- Stats -->
-   <section class="w-full bg-gradient-to-b from-pink-50 via-white to-orange-50 py-16">
-    <div class="max-w-5xl mx-auto px-6 reveal">
+   <section class="w-full py-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-50/80 via-purple-50/50 to-pink-50/80"></div>
+    <div class="max-w-5xl mx-auto px-6 relative z-10 reveal">
      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-      <div class="stat-card">
-       <p data-template-id="stat-1-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">10.000+</p>
+      <div class="stat-card bg-white/80 backdrop-blur rounded-2xl p-6 border border-white shadow-lg">
+       <p data-template-id="stat-1-value" class="canva-text text-3xl font-bold" data-count="10000" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">10.000+</p>
        <p data-template-id="stat-1-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Aktive Nutzer 🙌</p>
       </div>
-      <div class="stat-card">
-       <p data-template-id="stat-2-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">250.000+</p>
+      <div class="stat-card bg-white/80 backdrop-blur rounded-2xl p-6 border border-white shadow-lg">
+       <p data-template-id="stat-2-value" class="canva-text text-3xl font-bold" data-count="250000" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">250.000+</p>
        <p data-template-id="stat-2-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Erstellte Inhalte 📝</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card bg-white/80 backdrop-blur rounded-2xl p-6 border border-white shadow-lg">
        <p data-template-id="stat-3-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">5 Min.</p>
        <p data-template-id="stat-3-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Ø Erstellzeit ⚡</p>
       </div>
-      <div class="stat-card">
+      <div class="stat-card bg-white/80 backdrop-blur rounded-2xl p-6 border border-white shadow-lg">
        <p data-template-id="stat-4-value" class="canva-text text-3xl font-bold" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">98%</p>
        <p data-template-id="stat-4-label" class="canva-text text-sm mt-1" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Zufriedenheit 💜</p>
       </div>
      </div>
     </div>
    </section><!-- Testimonials -->
-   <section id="testimonials" class="w-full bg-gradient-to-b from-orange-50 via-white to-yellow-50 py-20">
-    <div class="max-w-6xl mx-auto px-6">
+   <section id="testimonials" class="w-full py-20 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+     <div class="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-yellow-100/40 to-orange-100/40 rounded-full blur-3xl"></div>
+     <div class="absolute bottom-20 right-10 w-64 h-64 bg-gradient-to-br from-indigo-100/30 to-purple-100/30 rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
      <h2 data-template-id="testimonials-title" class="canva-text text-3xl font-bold text-center mb-12 reveal" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Creator lieben Postly. 💬</h2>
-     <div class="grid md:grid-cols-3 gap-6"><!-- Testimonial 1 -->
-      <div data-template-id="testimonial-card-1" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
-       <div class="flex gap-0.5 mb-3 stars-container">
+     <div class="grid md:grid-cols-3 gap-6">
+      <div data-template-id="testimonial-card-1" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
+       <div class="flex gap-0.5 mb-3">
         <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
@@ -521,9 +485,9 @@
          <p data-template-id="testimonial-1-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Content Managerin</p>
         </div>
        </div>
-      </div><!-- Testimonial 2 -->
-      <div data-template-id="testimonial-card-2" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
-       <div class="flex gap-0.5 mb-3 stars-container">
+      </div>
+      <div data-template-id="testimonial-card-2" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
+       <div class="flex gap-0.5 mb-3">
         <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
@@ -541,15 +505,15 @@
         </svg>
        </div>
        <p data-template-id="testimonial-2-text" class="canva-text text-sm italic" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">"Die Analytics-Funktion zeigt mir genau, was bei meiner Zielgruppe funktioniert. 📊"</p>
-       <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-2-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/4687550/pexels-photo-4687550.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Portrait of a confident businessman in a black suit smiling warmly">
+       <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-2-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/4687550/pexels-photo-4687550.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Portrait of a confident businessman in a black suit">
         <div>
          <p data-template-id="testimonial-2-name" class="canva-text text-sm font-semibold" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Markus Schmidt</p>
          <p data-template-id="testimonial-2-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Marketing Lead</p>
         </div>
        </div>
-      </div><!-- Testimonial 3 -->
-      <div data-template-id="testimonial-card-3" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
-       <div class="flex gap-0.5 mb-3 stars-container">
+      </div>
+      <div data-template-id="testimonial-card-3" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
+       <div class="flex gap-0.5 mb-3">
         <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
@@ -567,61 +531,61 @@
         </svg>
        </div>
        <p data-template-id="testimonial-3-text" class="canva-text text-sm italic" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">"Endlich ein Tool, das Planung und Erstellung vereint. Absolut empfehlenswert! 🔥"</p>
-       <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-3-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Portrait of a happy man with arms crossed, exuding confidence">
+       <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-3-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Portrait of a happy man with arms crossed">
         <div>
          <p data-template-id="testimonial-3-name" class="canva-text text-sm font-semibold" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Jonas Weber</p>
          <p data-template-id="testimonial-3-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Freelance Creator</p>
         </div>
        </div>
       </div>
-     </div><!-- Row 2 -->
-     <div class="grid md:grid-cols-2 gap-6 mt-6 max-w-4xl mx-auto"><!-- Testimonial 4 -->
-      <div data-template-id="testimonial-card-4" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
-       <div class="flex gap-0.5 mb-3 stars-container">
-        <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
+     </div>
+     <div class="grid md:grid-cols-2 gap-6 mt-6 max-w-4xl mx-auto">
+      <div data-template-id="testimonial-card-4" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
+       <div class="flex gap-0.5 mb-3">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
-        <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
-        <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
-        <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
-        <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
        </div>
        <p data-template-id="testimonial-4-text" class="canva-text text-sm italic" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">"Seit ich Postly nutze, hat sich mein Engagement verdreifacht. Das Scheduling ist genial! ✨"</p>
-       <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-4-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Cheerful female entrepreneur in formal outfit and eyeglasses sitting at table in bright workplace">
+       <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-4-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Cheerful female entrepreneur in formal outfit and eyeglasses">
         <div>
          <p data-template-id="testimonial-4-name" class="canva-text text-sm font-semibold" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Anna Richter</p>
-         <p data-template-id="testimonial-4-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Agenturinhaber</p>
+         <p data-template-id="testimonial-4-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Agenturinhaberin</p>
         </div>
        </div>
-      </div><!-- Testimonial 5 -->
-      <div data-template-id="testimonial-card-5" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
-       <div class="flex gap-0.5 mb-3 stars-container">
-        <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
+      </div>
+      <div data-template-id="testimonial-card-5" class="canva-card p-6 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
+       <div class="flex gap-0.5 mb-3">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
-        <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
-        <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
-        <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
-        <svg class="w-4 h-4 text-yellow-400 star-animate" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
         </svg>
        </div>
        <p data-template-id="testimonial-5-text" class="canva-text text-sm italic" style="color: rgb(55, 65, 81); font-weight: 400; font-style: normal; font-size: 16px;">"Die Team-Funktionen haben unsere Content-Produktion auf ein neues Level gebracht. Mega! 🚀"</p>
-       <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-5-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/5792641/pexels-photo-5792641.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Headshot of cheerful African American male with beard in headwear looking at camera">
+       <div class="flex items-center gap-3 mt-5"><img data-template-id="testimonial-5-avatar" class="canva-image w-10 h-10 rounded-full object-cover" loading="lazy" src="https://images.pexels.com/photos/5792641/pexels-photo-5792641.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Headshot of cheerful African American male with beard">
         <div>
          <p data-template-id="testimonial-5-name" class="canva-text text-sm font-semibold" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">David Okafor</p>
          <p data-template-id="testimonial-5-role" class="canva-text text-xs" style="color: rgb(156, 163, 175); font-weight: 400; font-style: normal; font-size: 16px;">Agenturinhaber</p>
@@ -631,79 +595,79 @@
      </div>
     </div>
    </section><!-- Pricing -->
-   <section id="pricing" class="w-full bg-gradient-to-b from-yellow-50 via-white to-green-50 py-20">
-    <div class="max-w-6xl mx-auto px-6">
+   <section id="pricing" class="w-full py-20 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-to-b from-indigo-100/40 to-transparent rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
      <h2 data-template-id="pricing-title" class="canva-text text-3xl font-bold text-center mb-12 reveal" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Wähle den Plan, der zu dir passt. 💎</h2>
      <div class="grid md:grid-cols-3 gap-6">
-      <div data-template-id="pricing-card-1" class="canva-card p-7 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
+      <div data-template-id="pricing-card-1" class="canva-card p-7 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
        <h3 data-template-id="pricing-1-name" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Starter</h3>
        <p data-template-id="pricing-1-price" class="canva-text text-3xl font-bold mt-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">€0</p>
        <p data-template-id="pricing-1-desc" class="canva-text text-sm mt-2" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Für Einsteiger. Grundlegende Tools zum Starten.</p><button data-template-id="pricing-1-cta" class="canva-button mt-6 w-full py-2.5 rounded-xl font-medium text-sm" style="background: rgb(243, 244, 246); color: rgb(55, 65, 81); font-weight: 600; font-style: normal; font-size: 16px;">Kostenlos starten</button>
       </div>
-      <div data-template-id="pricing-card-2" class="canva-card p-7 rounded-2xl border-2 border-indigo-500 relative feature-hover reveal" style="background: rgb(255, 255, 255);"><span data-template-id="pricing-2-badge" class="canva-tag absolute -top-3 left-6 px-3 py-0.5 rounded-full text-xs font-semibold pulse-animate" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">⭐ Beliebt</span>
+      <div data-template-id="pricing-card-2" class="canva-card p-7 rounded-2xl border-2 border-indigo-500 relative feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);"><span data-template-id="pricing-2-badge" class="canva-tag absolute -top-3 left-6 px-3 py-0.5 rounded-full text-xs font-semibold pulse-animate" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">⭐ Beliebt</span>
        <h3 data-template-id="pricing-2-name" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Pro</h3>
        <p data-template-id="pricing-2-price" class="canva-text text-3xl font-bold mt-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">€29/mo</p>
-       <p data-template-id="pricing-2-desc" class="canva-text text-sm mt-2" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Für Profis. Alle Tools, unbegrenzte Inhalte.</p><button data-template-id="pricing-2-cta" class="canva-button mt-6 w-full py-2.5 rounded-xl font-medium text-sm" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Pro wählen</button>
+       <p data-template-id="pricing-2-desc" class="canva-text text-sm mt-2" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Für Profis. Alle Tools, unbegrenzte Inhalte.</p><button data-template-id="pricing-2-cta" class="canva-button mt-6 w-full py-2.5 rounded-xl font-medium text-sm shadow-lg shadow-indigo-200" style="background: rgb(99, 102, 241); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Pro wählen</button>
       </div>
-      <div data-template-id="pricing-card-3" class="canva-card p-7 rounded-2xl border border-gray-100 feature-hover reveal" style="background: rgb(255, 255, 255);">
+      <div data-template-id="pricing-card-3" class="canva-card p-7 rounded-2xl border border-gray-100 feature-hover reveal backdrop-blur-sm" style="background: rgb(255, 255, 255);">
        <h3 data-template-id="pricing-3-name" class="canva-text font-semibold text-lg" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 19px;">Team</h3>
        <p data-template-id="pricing-3-price" class="canva-text text-3xl font-bold mt-3" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 16px;">€79/mo</p>
        <p data-template-id="pricing-3-desc" class="canva-text text-sm mt-2" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Für Teams. Zusammenarbeit und erweiterte Analytics.</p><button data-template-id="pricing-3-cta" class="canva-button mt-6 w-full py-2.5 rounded-xl font-medium text-sm" style="background: rgb(243, 244, 246); color: rgb(55, 65, 81); font-weight: 600; font-style: normal; font-size: 16px;">Team starten</button>
       </div>
      </div>
     </div>
-   </section><!-- FAQ Section -->
-   <section class="w-full bg-gradient-to-b from-green-50 via-white to-blue-50 py-20">
+   </section><!-- FAQ -->
+   <section class="w-full py-20">
     <div class="max-w-3xl mx-auto px-6 reveal">
      <h2 data-template-id="faq-title" class="canva-text text-3xl font-bold text-center mb-12" style="color: rgb(17, 24, 39); font-weight: 700; font-style: normal; font-size: 24px;">Häufig gestellte Fragen</h2>
      <div class="space-y-4">
-      <details class="group">
-       <summary class="cursor-pointer flex items-center justify-between p-4 rounded-lg bg-white border border-gray-100 hover:border-indigo-200 transition"> <span data-template-id="faq-q1" class="canva-text font-semibold text-base" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Welche Social-Media-Plattformen unterstützt Postly?</span> <span class="text-indigo-500 group-open:rotate-180 transition">▼</span> </summary>
-       <div class="px-4 py-3 bg-indigo-50 border-x border-b border-indigo-100 text-sm">
-        <p data-template-id="faq-a1" class="canva-text" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Postly unterstützt alle großen Plattformen: Instagram, TikTok, Facebook, LinkedIn, Twitter/X, YouTube und Pinterest. Verwalte alle deine Kanäle an einem Ort.</p>
+      <details class="group"><summary class="cursor-pointer flex items-center justify-between p-4 rounded-xl bg-white border border-gray-100 hover:border-indigo-200 transition shadow-sm"><span data-template-id="faq-q1" class="canva-text font-semibold text-base" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Welche Social-Media-Plattformen unterstützt Postly?</span><span class="text-indigo-500 group-open:rotate-180 transition">▼</span></summary>
+       <div class="px-4 py-3 bg-indigo-50/50 border-x border-b border-indigo-100 rounded-b-xl text-sm">
+        <p data-template-id="faq-a1" class="canva-text" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Postly unterstützt alle großen Plattformen: Instagram, TikTok, Facebook, LinkedIn, Twitter/X, YouTube und Pinterest.</p>
        </div>
       </details>
-      <details class="group">
-       <summary class="cursor-pointer flex items-center justify-between p-4 rounded-lg bg-white border border-gray-100 hover:border-indigo-200 transition"> <span data-template-id="faq-q2" class="canva-text font-semibold text-base" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Kann ich meine Posts zeitlich planen?</span> <span class="text-indigo-500 group-open:rotate-180 transition">▼</span> </summary>
-       <div class="px-4 py-3 bg-indigo-50 border-x border-b border-indigo-100 text-sm">
-        <p data-template-id="faq-a2" class="canva-text" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Ja! Mit unserem Content-Kalender kannst du Posts zeitlich planen und automatisch veröffentlichen. Optimiere deine Veröffentlichungszeiten für maximale Reichweite.</p>
+      <details class="group"><summary class="cursor-pointer flex items-center justify-between p-4 rounded-xl bg-white border border-gray-100 hover:border-indigo-200 transition shadow-sm"><span data-template-id="faq-q2" class="canva-text font-semibold text-base" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Kann ich meine Posts zeitlich planen?</span><span class="text-indigo-500 group-open:rotate-180 transition">▼</span></summary>
+       <div class="px-4 py-3 bg-indigo-50/50 border-x border-b border-indigo-100 rounded-b-xl text-sm">
+        <p data-template-id="faq-a2" class="canva-text" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Ja! Mit unserem Content-Kalender kannst du Posts zeitlich planen und automatisch veröffentlichen.</p>
        </div>
       </details>
-      <details class="group">
-       <summary class="cursor-pointer flex items-center justify-between p-4 rounded-lg bg-white border border-gray-100 hover:border-indigo-200 transition"> <span data-template-id="faq-q3" class="canva-text font-semibold text-base" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Bietet Postly KI-Unterstützung an?</span> <span class="text-indigo-500 group-open:rotate-180 transition">▼</span> </summary>
-       <div class="px-4 py-3 bg-indigo-50 border-x border-b border-indigo-100 text-sm">
-        <p data-template-id="faq-a3" class="canva-text" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Absolut! Nutze KI-gestützte Vorschläge für Bildunterschriften, Hashtags und Content-Ideen. Unsere KI lernt von deiner Performance und macht bessere Vorschläge.</p>
+      <details class="group"><summary class="cursor-pointer flex items-center justify-between p-4 rounded-xl bg-white border border-gray-100 hover:border-indigo-200 transition shadow-sm"><span data-template-id="faq-q3" class="canva-text font-semibold text-base" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Bietet Postly KI-Unterstützung an?</span><span class="text-indigo-500 group-open:rotate-180 transition">▼</span></summary>
+       <div class="px-4 py-3 bg-indigo-50/50 border-x border-b border-indigo-100 rounded-b-xl text-sm">
+        <p data-template-id="faq-a3" class="canva-text" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Absolut! Nutze KI-gestützte Vorschläge für Bildunterschriften, Hashtags und Content-Ideen.</p>
        </div>
       </details>
-      <details class="group">
-       <summary class="cursor-pointer flex items-center justify-between p-4 rounded-lg bg-white border border-gray-100 hover:border-indigo-200 transition"> <span data-template-id="faq-q4" class="canva-text font-semibold text-base" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Wie kann ich mein Team einladen?</span> <span class="text-indigo-500 group-open:rotate-180 transition">▼</span> </summary>
-       <div class="px-4 py-3 bg-indigo-50 border-x border-b border-indigo-100 text-sm">
-        <p data-template-id="faq-a4" class="canva-text" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Mit unserem Pro-Plan und höher kannst du unbegrenzt Teammitglieder einladen. Teile Zugriff, behalte Kontrolle und arbeitet gemeinsam an Inhalten.</p>
+      <details class="group"><summary class="cursor-pointer flex items-center justify-between p-4 rounded-xl bg-white border border-gray-100 hover:border-indigo-200 transition shadow-sm"><span data-template-id="faq-q4" class="canva-text font-semibold text-base" style="color: rgb(17, 24, 39); font-weight: 600; font-style: normal; font-size: 16px;">Wie kann ich mein Team einladen?</span><span class="text-indigo-500 group-open:rotate-180 transition">▼</span></summary>
+       <div class="px-4 py-3 bg-indigo-50/50 border-x border-b border-indigo-100 rounded-b-xl text-sm">
+        <p data-template-id="faq-a4" class="canva-text" style="color: rgb(107, 114, 128); font-weight: 400; font-style: normal; font-size: 16px;">Mit unserem Pro-Plan und höher kannst du unbegrenzt Teammitglieder einladen.</p>
        </div>
       </details>
      </div>
     </div>
    </section><!-- CTA -->
-   <section class="w-full bg-gradient-to-b from-green-50 to-white py-16">
+   <section class="w-full py-16">
     <div class="max-w-5xl mx-auto px-6 reveal">
-     <div data-template-id="cta-banner" class="canva-banner rounded-3xl p-12 text-center" style="background: linear-gradient(135deg, rgb(99, 102, 241), rgb(139, 92, 246));">
-      <h2 data-template-id="cta-title" class="canva-text text-3xl font-bold" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 24px;">Bereit, deinen Content auf das nächste Level zu bringen? 🚀</h2>
-      <p data-template-id="cta-subtitle" class="canva-text mt-3 text-base" style="color: rgb(224, 231, 255); font-weight: 400; font-style: normal; font-size: 16px;">Starte jetzt kostenlos und überzeuge dich selbst.</p><button data-template-id="cta-button" class="canva-button mt-8 px-7 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition" style="background: rgb(255, 255, 255); color: rgb(99, 102, 241); font-weight: 700; font-style: normal; font-size: 16px;">Jetzt loslegen ✨</button>
+     <div data-template-id="cta-banner" class="canva-banner rounded-3xl p-12 text-center relative overflow-hidden" style="background: linear-gradient(135deg, rgb(99, 102, 241), rgb(139, 92, 246));">
+      <div class="absolute inset-0 pointer-events-none">
+       <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+       <div class="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+      </div>
+      <div class="relative z-10">
+       <h2 data-template-id="cta-title" class="canva-text text-3xl font-bold" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 24px;">Bereit, deinen Content auf das nächste Level zu bringen? 🚀</h2>
+       <p data-template-id="cta-subtitle" class="canva-text mt-3 text-base" style="color: rgb(224, 231, 255); font-weight: 400; font-style: normal; font-size: 16px;">Starte jetzt kostenlos und überzeuge dich selbst.</p><button data-template-id="cta-button" class="canva-button mt-8 px-7 py-3.5 rounded-xl font-semibold shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition" style="background: rgb(255, 255, 255); color: rgb(99, 102, 241); font-weight: 700; font-style: normal; font-size: 16px;">Jetzt loslegen ✨</button>
+      </div>
      </div>
     </div>
    </section>
   </main><!-- Footer -->
-  <footer data-template-id="footer-section" class="canva-footer w-full border-t border-gray-100 mt-10" style="background: rgb(255, 255, 255);">
+  <footer data-template-id="footer-section" class="canva-footer w-full border-t border-gray-100" style="background: rgb(255, 255, 255);">
    <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
     <div class="flex items-center gap-2">
-     <div class="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-300 to-purple-300 flex items-center justify-center">
+     <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center">
       <svg viewBox="0 0 24 24" fill="none" class="w-4 h-4">
-       <path d="M3 12L21 3L12 21L10 14L3 12Z" fill="url(#logoGradient2)" stroke="white" stroke-width="0.5"></path><defs>
-        <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-         <stop offset="0%" style="stop-color:#60a5fa"></stop>
-         <stop offset="100%" style="stop-color:#a78bfa"></stop>
-        </linearGradient>
-       </defs>
+       <path d="M3 12L21 3L12 21L10 14L3 12Z" fill="white" stroke="white" stroke-width="0.5"></path>
       </svg>
      </div><span data-template-id="footer-brand" class="canva-text font-semibold" style="color: rgb(17, 24, 39); font-weight: 400; font-style: normal; font-size: 16px;">Postly</span>
     </div>
@@ -713,14 +677,37 @@
   <script src="/_sdk/editing_sdk.js"></script>
   <script>
     lucide.createIcons();
+
+    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+    // Counter animation for stats
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = 'true';
+          const target = parseInt(entry.target.dataset.count);
+          if (!target) return;
+          let current = 0;
+          const increment = target / 60;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            const formatted = current >= 1000 ? Math.floor(current / 1000).toLocaleString('de-DE') + '.000+' : Math.floor(current) + '+';
+            entry.target.textContent = formatted;
+          }, 16);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0d200177536469d',t:'MTc4MTY5ODc0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0e03722f7583a6a',t:'MTc4MTg0Nzc5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body></html>
